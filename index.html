@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFE4EC">
+  <title>A Little Surprise for You 💗</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <button class="back-button" id="backButton" type="button" hidden>← BACK</button>
+  <div class="ambient-hearts" aria-hidden="true"><span>♡</span><span>♥</span><span>♡</span><span>♥</span><span>♡</span></div>
+  <audio id="backgroundMusic" loop preload="auto" aria-hidden="true"><source src="music.mp3" type="audio/mpeg"></audio>
+  <audio id="letterMusic" loop preload="none" aria-hidden="true"><source src="music2.mp3" type="audio/mpeg"></audio>
+  <nav class="site-nav" id="siteNav" aria-label="Adventure navigation" hidden>
+    <button class="nav-brand" id="navBrand" aria-label="Go to home"><img src="logo.png" alt=""><span>OUR LITTLE SURPRISE</span></button>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">☰ <span class="sr-only">Toggle navigation</span></button>
+    <div class="nav-links" id="navLinks">
+      <button data-go="welcome">HOME</button><button data-go="puzzle">HEART PUZZLE</button><button data-go="boxes">FIND “I'M”</button>
+      <button data-go="flowers">FLOWER GAME</button><button data-go="dice">DICE GAME</button><button data-go="video">VIDEO</button>
+      <button data-go="quiz">FINAL QUIZ</button><button data-go="letter">LOVE LETTER</button><button data-go="neon">NEON REVEAL</button>
+    </div>
+  </nav>
+  <main>
+    <section class="stage active" id="welcome" aria-labelledby="welcomeTitle">
+      <div class="welcome-content"><div class="big-heart" aria-hidden="true">💗</div><p class="eyebrow">A LITTLE ADVENTURE MADE JUST FOR YOU</p><h1 id="welcomeTitle">HI, BABY! 💗</h1><p class="subtitle">I MADE SOMETHING SPECIAL JUST FOR YOU...</p><button class="primary" data-next="puzzle">LET'S START, BABY! 💌</button></div>
+    </section>
+    <section class="stage" id="puzzle" aria-labelledby="puzzleTitle"><div class="card game-card"><p class="eyebrow">STAGE 1 OF 8 · LEVEL 3 CHALLENGE</p><h2 id="puzzleTitle">A LITTLE HEART PUZZLE 🧩</h2><p>Put all nine pieces in the right spots. Tap a piece, then tap a spot where it belongs.</p><div class="puzzle-wrap"><div class="puzzle-board" id="puzzleBoard" aria-label="Nine-piece heart picture puzzle"></div><div class="puzzle-tray" id="puzzleTray" aria-label="Nine shuffled heart picture pieces"></div></div><p id="puzzleProgress" class="feedback" aria-live="polite">0 OF 9 PIECES PLACED</p><div class="button-row"><button class="secondary" id="puzzleReset">RESET PUZZLE</button><button class="primary" id="puzzleContinue" data-next="tease1" hidden>CONTINUE</button></div></div></section>
+    <section class="stage" id="tease1" aria-labelledby="tease1Title"><div class="card message-card"><p class="eyebrow">A QUICK NOTE 💌</p><h2 id="tease1Title">BEFORE WE GO ON...</h2><p class="type-text" id="teaseText1" aria-live="polite"></p><button class="primary" id="teaseNext1" data-next="boxes" hidden>NEXT, BABY!</button></div></section>
+    <section class="stage" id="boxes" aria-labelledby="boxesTitle"><div class="card game-card"><p class="eyebrow">STAGE 3 OF 8 · LEVEL 3 CHALLENGE</p><h2 id="boxesTitle">FIND THE RIGHT BOX 🎁</h2><p>One of these eight boxes is hiding a tiny piece of your surprise.</p><div class="box-grid" id="boxGrid"></div><p id="boxFeedback" class="feedback" aria-live="polite">PICK A BOX, BABY!</p><button class="primary" id="boxContinue" data-next="tease2" hidden>CONTINUE</button></div></section>
+    <section class="stage" id="tease2" aria-labelledby="tease2Title"><div class="card message-card"><p class="eyebrow">YOU'RE DOING SO WELL 💕</p><h2 id="tease2Title">A LITTLE MORE...</h2><div class="doodle-heart" aria-hidden="true">♡</div><p class="type-text" id="teaseText2" aria-live="polite"></p><p class="handwritten">keep going, cutie ♡</p><button class="primary" id="teaseNext2" data-next="flowers" hidden>LET'S KEEP GOING!</button></div></section>
+    <section class="stage" id="flowers" aria-labelledby="flowersTitle"><div class="card game-card"><p class="eyebrow">STAGE 5 OF 8 · LEVEL 3 CHALLENGE</p><h2 id="flowersTitle">A FLOWER LETTER HUNT 🌷</h2><p>Find the six letters in order to reveal the word hidden among 10 flowers.</p><div id="letterProgress" class="letter-progress" aria-label="Letters found">_ _ _ _ _ _</div><div id="garden" class="garden" aria-label="Ten clickable flowers"></div><p class="feedback" id="flowerFeedback" aria-live="polite">YOUR NEXT LETTER IS S 🌷</p><button class="primary" id="flowerContinue" data-next="dice" hidden>NEXT SURPRISE!</button></div></section>
+    <section class="stage" id="dice" aria-labelledby="diceTitle"><div class="card game-card"><p class="eyebrow">STAGE 6 OF 8 · LUCKY NUMBERS</p><h2 id="diceTitle">ROLL BOTH DICE UNTIL YOU GET A 2 AND A 4! 🎲💗</h2><div class="dice-row"><div class="die" id="die1" aria-label="Die one">⚀</div><div class="die" id="die2" aria-label="Die two">⚀</div></div><button class="primary" id="rollDice">ROLL THE DICE!</button><p class="feedback" id="diceFeedback" aria-live="polite">YOU CAN DO IT, BABY!</p><button class="primary" id="diceContinue" data-next="video" hidden>ONE LAST SURPRISE!</button></div></section>
+    <section class="stage" id="video" aria-labelledby="videoTitle"><div class="card video-card"><p class="eyebrow">STAGE 7 OF 8 · A MESSAGE FOR YOU</p><h2 id="videoTitle">A LITTLE MESSAGE JUST FOR YOU, BABY 💗</h2><p class="subtitle">WATCH UNTIL THE END, OKAY? 👀💌</p><video id="loveVideo" controls playsinline preload="metadata" aria-label="Personal video message"><source src="vid.mp4" type="video/mp4">Your browser does not support HTML video.</video><p id="videoStatus" class="feedback" aria-live="polite">Press play and watch until the end to unlock the final quiz 💗</p><button class="primary" id="videoContinue" data-next="quiz" hidden>GO TO THE FINAL QUIZ</button></div></section>
+    <section class="stage" id="quiz" aria-labelledby="quizTitle"><div class="card game-card"><p class="eyebrow">STAGE 8 OF 8 · THE FINAL CHALLENGE</p><h2 id="quizTitle">ONE LAST QUESTION, BABY... 💗</h2><p>AFTER EVERYTHING YOU'VE FOUND IN EVERY PAGE, CAN YOU FIGURE OUT WHAT I'M TRYING TO TELL YOU? 👀</p><div class="answers" id="answers"></div><p class="feedback" id="quizFeedback" aria-live="polite"></p><button class="primary" id="openLetter" data-next="envelope" hidden>OPEN YOUR FINAL SURPRISE 💌</button></div></section>
+    <section class="stage" id="envelope" aria-labelledby="envelopeTitle"><div class="card envelope-scene"><p class="eyebrow">YOU MADE IT 💗</p><h2 id="envelopeTitle">GO ON, BABY... OPEN IT. 💌</h2><button class="envelope-button" id="envelopeButton" aria-label="Open your letter"><span class="envelope-art"><span class="letter-peek">💌</span><span class="flap"></span><span class="seal">♥</span></span><span class="sr-only">Open envelope</span></button><div class="letter-paper" id="letterPaper" hidden><h2>MY LOVE,</h2><p id="loveLetterText" class="letter-copy" aria-live="polite"></p><p id="letterSignature" class="handwritten" hidden>LOVE ALWAYS,<br>YOUR BABY 💌</p><button class="primary" id="toNeon" hidden>SEE YOUR FINAL SURPRISE 💍</button></div></div></section>
+    <section class="stage neon-stage" id="neon" aria-labelledby="neonTitle"><div class="neon-content"><p class="eyebrow">AND NOW, THE BIG REVEAL...</p><h1 id="neonTitle"><span>BABY, IT'S OFFICIAL!</span><strong>I'M YOURS!</strong><span>NO TURNING BACK!</span><strong class="rings-line">JUST ADD THE RINGS, BABY!</strong><span>HEHEHE 💍💗</span></h1><div class="rings" aria-label="Two wedding rings with a heart"><span class="ring ring-one"></span><span class="ring ring-two"></span><span class="ring-heart">♥</span><i class="spark spark-one">✦</i><i class="spark spark-two">✧</i><i class="spark spark-three">✦</i></div><p class="neon-caption">HEHEHE, YOU KNOW WHAT THAT MEANS, BABY. 😭💗💍</p></div></section>
+  </main>
+  <div id="confetti" class="confetti-layer" aria-hidden="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
